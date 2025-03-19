@@ -1,14 +1,21 @@
 package com.reuniones.reuniones.models;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.ZonedDateTime;
-import java.util.ArrayList;
 import java.util.List;
+
 
 @Entity
 @Table(name = "reunion")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Reunion {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -23,45 +30,7 @@ public class Reunion {
             joinColumns = {@JoinColumn(name = "reunion_id")},
             inverseJoinColumns = {@JoinColumn(name = "persona_id")}
     )
+
     public List<Persona> asistentes;
 
-    public Reunion() {}
-
-    public Reunion(long id, String asunto, ZonedDateTime fecha) {
-        this.id = id;
-        this.asunto = asunto;
-        this.fecha = fecha;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getAsunto() {
-        return asunto;
-    }
-
-    public void setAsunto(String asunto) {
-        this.asunto = asunto;
-    }
-
-    public ZonedDateTime getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(ZonedDateTime fecha) {
-        this.fecha = fecha;
-    }
-
-    public List<Persona> getAsistentes() {
-        return asistentes;
-    }
-
-    public void addAsistente(Persona persona) {
-        asistentes.add(persona);
-    }
 }
