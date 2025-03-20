@@ -18,4 +18,5 @@ public class PersonaService {
     public List<Persona> getAllPersonas(){
         return personaRepository.findAll();
     }
+
 }

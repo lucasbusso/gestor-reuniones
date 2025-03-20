@@ -33,4 +33,12 @@ public class Reunion {
 
     public List<Persona> asistentes;
 
+    @Override
+    public String toString() {
+        return "Reunion{" +
+                "fecha=" + fecha +
+                ", asunto='" + asunto + '\'' +
+                ", id=" + id +
+                '}';
+    }
 }
